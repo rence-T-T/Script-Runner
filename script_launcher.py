@@ -57,6 +57,11 @@ def main():
             "directory": r"D:\PROGRAMMING\PYTHON\&my_scripts\Battery Notification",  # Directory path
             "is_gui": True  # This is a GUI app, so show the window
         },
+        {
+            "script": "phone_status.py.py",  # Your GUI app
+            "directory": r"D:\PROGRAMMING\PYTHON\&my_scripts\Phone Monitor",  # Directory path
+            "is_gui": True  # This is a GUI app, so show the window
+        },
         # Add more scripts as needed, e.g.:
         # {
         #     "script": "another_script.py",
