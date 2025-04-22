@@ -59,7 +59,7 @@ def main():
             "is_gui": True  # This is a GUI app, so show the window
         },
         {
-            "script": "phone_status.py.py",  # Your GUI app
+            "script": "phone_status.py",  # Your GUI app
             "directory": r"D:\PROGRAMMING\PYTHON\&my_scripts\Phone Monitor",  # Directory path
             "is_gui": False  # This is a GUI app, so show the window
         },
