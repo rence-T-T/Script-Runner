@@ -1,6 +1,7 @@
 import os
 import subprocess
 import tempfile
+from time import sleep
 
 def run_script(script_name, directory, show_window=True):
     """
@@ -32,10 +33,10 @@ def run_script(script_name, directory, show_window=True):
         fd, vbs_path = tempfile.mkstemp(suffix=".vbs")
         with os.fdopen(fd, 'w') as f:
             f.write(f'''
-Set WshShell = CreateObject("WScript.Shell")
-WshShell.CurrentDirectory = "{directory.replace('\\', '\\\\')}"
-WshShell.Run "pythonw {script_name}", {window_style}, False
-''')
+            Set WshShell = CreateObject("WScript.Shell")
+            WshShell.CurrentDirectory = "{directory.replace('\\', '\\\\')}"
+            WshShell.Run "pythonw {script_name}", {window_style}, False
+            ''')
         
         # Run the VBS file (which will run the Python script in the correct directory)
         subprocess.run(["wscript.exe", vbs_path], check=True)
@@ -60,7 +61,7 @@ def main():
         {
             "script": "phone_status.py.py",  # Your GUI app
             "directory": r"D:\PROGRAMMING\PYTHON\&my_scripts\Phone Monitor",  # Directory path
-            "is_gui": True  # This is a GUI app, so show the window
+            "is_gui": False  # This is a GUI app, so show the window
         },
         # Add more scripts as needed, e.g.:
         # {
@@ -81,6 +82,7 @@ def main():
             print(f"Failed to run {script_info['script']}")
     
     print("All scripts have been launched!")
+    sleep(10)
 
 if __name__ == "__main__":
     main()
